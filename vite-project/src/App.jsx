@@ -87,20 +87,22 @@ export default function App() {
 
         <div>
           <h1 className="mb-4">Cart</h1>
-          {cartItem.map((item) => {
-            return (
-              <div key={item.id} className="flex gap-8 border-b-2">
-                <p>{item.name}</p>
-                <div className="flex gap-2">
-                  <p className="w-4 flex justify-center items-center">
-                    {item.cartCount}
-                  </p>
-                  <p>×</p>
-                  <p>{item.price}</p>
-                </div>
-              </div>
-            );
-          })}
+          {cartItem.length > 0
+            ? cartItem.map((item) => {
+                return (
+                  <div key={item.id} className="flex gap-8 border-b-2">
+                    <p>{item.name}</p>
+                    <div className="flex gap-2">
+                      <p className="w-4 flex justify-center items-center">
+                        {item.cartCount}
+                      </p>
+                      <p>×</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                );
+              })
+            : "No product"}
           <div className="flex gap-8">
             <p>Total</p>
             <p>{total}</p>
